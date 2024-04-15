@@ -12,7 +12,7 @@ class Application {
             port: 3333,
         });
 
-        console.log('server started 👌');
+        console.log('server started 👌 ');
     }
 }
 
