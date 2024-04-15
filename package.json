@@ -1,0 +1,29 @@
+{
+  "name": "template-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsnd --transpile-only --respawn --ignore-watch node_modules --watch src src/main.ts",
+    "build": "tsc && copy package*.json dist",
+    "lint-fix": "eslint --fix {src,test}/**/*.ts",
+    "format": "prettier -w {src,test}/**/*.ts",
+    "prepare": "husky"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "@typescript-eslint/parser": "^7.7.0",
+    "eslint": "^8.57.0",
+    "husky": "^9.0.11",
+    "prettier": "^3.2.5",
+    "ts-node-dev": "^2.0.0",
+    "tsc": "^2.0.4",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "fastify": "^4.26.2"
+  }
+}
