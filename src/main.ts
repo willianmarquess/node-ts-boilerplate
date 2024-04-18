@@ -1,19 +1,4 @@
-import fastify from 'fastify';
+import Application from '@/src/core/Application';
+import WinstonLogAdapter from '@/src/infra/log/WinstonLogAdapter';
 
-class Application {
-    async start() {
-        const server = fastify();
-
-        server.get('/ping', (_req, _reply) => {
-            return 'pong';
-        });
-
-        await server.listen({
-            port: 3333,
-        });
-
-        console.log('server started 👌 ');
-    }
-}
-
-new Application().start();
+new Application(new WinstonLogAdapter()).start();
