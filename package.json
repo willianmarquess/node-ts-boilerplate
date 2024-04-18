@@ -4,26 +4,36 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsnd --transpile-only --respawn --ignore-watch node_modules --watch src src/main.ts",
+    "start": "tsnd -r tsconfig-paths/register --transpile-only --respawn --ignore-watch node_modules --watch src src/main.ts",
     "build": "tsc && copy package*.json dist",
-    "lint-fix": "eslint --fix {src,test}/**/*.ts",
+    "lint:fix": "eslint --fix {src,test}/**/*.ts",
     "format": "prettier -w {src,test}/**/*.ts",
-    "prepare": "husky"
+    "prepare": "husky",
+    "test:unit": "npm run test",
+    "test:coverage": "npm run test -- --coverage",
+    "test": "jest --no-cache"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.12",
     "@types/node": "^20.12.7",
     "@typescript-eslint/eslint-plugin": "^7.7.0",
     "@typescript-eslint/parser": "^7.7.0",
     "eslint": "^8.57.0",
     "husky": "^9.0.11",
+    "jest": "^29.7.0",
     "prettier": "^3.2.5",
+    "ts-jest": "^29.1.2",
     "ts-node-dev": "^2.0.0",
     "tsc": "^2.0.4",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "fastify": "^4.26.2"
+    "cross-env": "^7.0.3",
+    "fastify": "^4.26.2",
+    "winston": "^3.13.0"
   }
 }

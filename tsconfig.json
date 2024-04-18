@@ -1,18 +1,22 @@
 {
   "compilerOptions": {
-    "target": "es2022",                          
-    "module": "commonjs",                                           
-    "esModuleInterop": true,                  
-    "skipLibCheck": true,                     
+    "target": "es2022",
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
-    "rootDir": "." ,
+    "rootDirs": [
+      "src"
+    ],
     "baseUrl": ".",
     "paths": {
-      "src:/": ["./src/*"]
+      "@/*": [
+        "*"
+      ],
     }
   },
   "include": [
-    "src/**/*.ts"
+    "src"
   ]
 }
