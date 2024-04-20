@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+    node-service:
+        image: node:alpine:latest
+        container_name: node-service
+        restart: always
+        env_file:
+            - ./.env
+        ports: 
+            - $SERVER_PORT:3333
+        depends_on:
+            - raven
+        volumes:
+        - . :/usr/src/app
+        working_dir: /usr/src/app
+        command: bash -c "npm install && npm start"

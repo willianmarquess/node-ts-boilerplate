@@ -1,5 +1,5 @@
 import { createLogger, format, Logger, transports } from 'winston';
-import LogAdapter from '@/core/log/LogAdapter';
+import { LogAdapter, LogInput } from '@/core/log/LogAdapter';
 
 export default class WinstonLogAdapter implements LogAdapter {
     private logger: Logger;
@@ -27,11 +27,11 @@ export default class WinstonLogAdapter implements LogAdapter {
         });
     }
 
-    info(message: string): void {
+    info(message: LogInput): void {
         this.logger.info(message);
     }
 
-    error(message: string): void {
+    error(message: LogInput): void {
         this.logger.error(message);
     }
 }

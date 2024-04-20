@@ -1,5 +1,5 @@
 import fastify from 'fastify';
-import LogAdapter from '../log/LogAdapter';
+import { LogAdapter } from '@/core/log/LogAdapter';
 import ExampleController from '@/presentation/controllers/ExampleController';
 
 export default class Server {
@@ -27,11 +27,11 @@ export default class Server {
             port: 3333,
         });
 
-        this.logger.info('server started 👌');
+        this.logger.info('server has started 👌');
     }
 
     async close() {
+        await this.fastify.close();
         this.logger.info('server has closed 👌');
-        return this.fastify.close();
     }
 }
