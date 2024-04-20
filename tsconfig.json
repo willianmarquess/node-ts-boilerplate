@@ -1,22 +1,25 @@
 {
   "compilerOptions": {
-    "target": "es2022",
+    "target": "ES6",
     "module": "CommonJS",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
     "rootDirs": [
-      "src"
+      "src",
+      "test"
     ],
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
       "@/*": [
         "*"
       ],
+      "@/test/*": ["../test/*"]
     }
   },
   "include": [
-    "src"
+    "src",
+    "test"
   ]
 }

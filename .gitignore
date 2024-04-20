@@ -2,3 +2,5 @@ error.log
 info.log
 node_modules
 coverage
+logs
+.vscode

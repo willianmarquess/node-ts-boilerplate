@@ -19,6 +19,10 @@ const config: Config = {
       lines: 100,
       statements: 100
     }
+  },
+  moduleNameMapper: {
+    '@/test/(.*)': '<rootDir>/test/$1',
+    '@/(.*)': '<rootDir>/src/$1'
   }
 };
 
