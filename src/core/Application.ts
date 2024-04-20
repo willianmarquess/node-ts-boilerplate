@@ -1,20 +1,20 @@
-import fastify from 'fastify';
 import LogAdapter from './log/LogAdapter';
+import Server from './server/Server';
 
 export default class Application {
-    constructor(private logger: LogAdapter) {}
+    constructor(
+        private logger: LogAdapter,
+        private server: Server,
+    ) {}
 
     async start() {
-        const server = fastify();
+        await this.server.setup().start();
+        this.logger.info('application started 🚀');
+        return this;
+    }
 
-        server.get('/ping', (_req, _reply) => {
-            return 'pong';
-        });
-
-        await server.listen({
-            port: 3333,
-        });
-
-        this.logger.info('server started 👌 ');
+    async shutdown() {
+        await this.server.close();
+        this.logger.info('application closed 🪂');
     }
 }

@@ -1,5 +1,5 @@
 import { createLogger, format, Logger, transports } from 'winston';
-import LogAdapter from '@/src/core/log/LogAdapter';
+import LogAdapter from '@/core/log/LogAdapter';
 
 export default class WinstonLogAdapter implements LogAdapter {
     private logger: Logger;
@@ -15,11 +15,11 @@ export default class WinstonLogAdapter implements LogAdapter {
             ),
             transports: [
                 new transports.File({
-                    filename: 'error.log',
+                    filename: 'logs/error.log',
                     level: 'error',
                 }),
                 new transports.File({
-                    filename: 'info.log',
+                    filename: 'logs/info.log',
                     level: 'info',
                 }),
                 new transports.Console(),

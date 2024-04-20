@@ -1,4 +1,7 @@
-import Application from '@/src/core/Application';
-import WinstonLogAdapter from '@/src/infra/log/WinstonLogAdapter';
+import Application from '@/core/Application';
+import WinstonLogAdapter from '@/infra/log/WinstonLogAdapter';
+import Server from './core/server/Server';
 
-new Application(new WinstonLogAdapter()).start();
+const logger = new WinstonLogAdapter();
+
+new Application(logger, new Server(logger)).start();
