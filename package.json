@@ -9,7 +9,7 @@
     "lint:fix": "eslint --fix {src,test}/**/*.ts",
     "format": "prettier -w {src,test}/**/*.ts",
     "prepare": "husky",
-    "test:unit": "npm run test",
+    "test:unit": "npm run test -- -c jest.config-unit.ts",
     "test:integration": "npm run test -- -c jest.config-integration.ts",
     "test:coverage": "npm run test -- --coverage",
     "test": "jest --no-cache"

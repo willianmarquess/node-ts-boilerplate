@@ -13,7 +13,9 @@ describe('Example Controller', () => {
         it('should return an expected string message', () => {
             const exampleController = new ExampleController();
             const result = exampleController.example();
-            expect(result).toBe('example');
+            expect(result).toEqual({
+                message: 'example',
+            });
         });
     });
 });
