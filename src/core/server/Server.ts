@@ -25,6 +25,7 @@ export default class Server {
     async start() {
         await this.fastify.listen({
             port: 3333,
+            host: '0.0.0.0',
         });
 
         this.logger.info('server has started 👌');

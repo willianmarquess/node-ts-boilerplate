@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsnd -r tsconfig-paths/register --transpile-only --respawn --ignore-watch node_modules --watch src src/main.ts",
-    "build": "tsc && copy package*.json dist",
+    "start": "node dist/main.js",
+    "dev": "tsnd -r tsconfig-paths/register --transpile-only --respawn --ignore-watch node_modules --watch src src/main.ts",
+    "build": "tsc -p tsconfig-build.json && tsc-alias",
     "lint:fix": "eslint --fix {src,test}/**/*.ts",
     "format": "prettier -w {src,test}/**/*.ts",
-    "prepare": "husky",
+    "prepare": "npx husky install",
     "test:unit": "npm run test -- -c jest.config-unit.ts",
     "test:integration": "npm run test -- -c jest.config-integration.ts",
     "test:coverage": "npm run test -- --coverage",
@@ -28,12 +29,11 @@
     "prettier": "^3.2.5",
     "ts-jest": "^29.1.2",
     "ts-node-dev": "^2.0.0",
-    "tsc": "^2.0.4",
+    "tsc-alias": "^1.8.8",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "cross-env": "^7.0.3",
     "fastify": "^4.26.2",
     "winston": "^3.13.0"
   }
