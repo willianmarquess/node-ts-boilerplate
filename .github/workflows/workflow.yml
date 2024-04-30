@@ -15,7 +15,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Format code
-        run: npm format && npm run lint:fix
+        run: npm run format && npm run lint:fix
       - name: Run unit tests
         run: npm test:unit
       - name: Run integration tests
