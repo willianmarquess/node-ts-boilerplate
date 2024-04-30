@@ -1,0 +1,22 @@
+name: Github Actions Example
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: configuring nodejs
+        uses: actions/setup-node@v2
+        with: 
+          node-version: "20.x"
+      - name: Install dependencies
+        run: npm install
+      - name: Format code
+        run: npm format && npm run lint:fix
+      - name: Run unit tests
+        run: npm test:unit
+      - name: Run integration tests
+        run: npm test:integration
